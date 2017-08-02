@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/david4096/celldb-js#readme",
   "dependencies": {
+    "net": "^1.0.2",
     "popsicle": "^9.1.0"
   }
 }
