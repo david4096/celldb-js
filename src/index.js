@@ -2,8 +2,6 @@
 // own module.
 const request = require('popsicle')
 
-var URL = "http://localhost:8080";
-
 function list_samples(connection, callback) {
   // sample_ids
   return request.get({url: URL + "/list_samples"})
@@ -13,7 +11,7 @@ function list_samples(connection, callback) {
 
 function list_features(connection, callback) {
   // feature_ids
-  return request.get({url: URL + "/list_features"})
+  return request.get({url: connection + "/list_features"})
     .use(request.plugins.parse('json'))
     .then(callback);;
 }
@@ -22,7 +20,7 @@ function matrix(connection, sample_ids, feature_ids, callback) {
   var payload = {sample_ids: sample_ids, feature_ids: feature_ids};
   // matrix
   return request.post(
-    {url: URL + "/matrix",json: true, body: payload})
+    {url: connection + "/matrix",json: true, body: payload})
       .use(request.plugins.parse('json'))
       .then(callback);;
 }
@@ -31,7 +29,7 @@ function sparse_matrix(connection, sample_ids, feature_ids, callback) {
   var payload = {sample_ids: sample_ids, feature_ids: feature_ids};
   // matrix
   return request.post(
-    {url: URL + "/matrix/sparse",json: true, body: payload})
+    {url: connection + "/matrix/sparse",json: true, body: payload})
       .use(request.plugins.parse('json'))
       .then(callback);;
 }
