@@ -4,7 +4,7 @@ const request = require('popsicle')
 
 function list_samples(connection, callback) {
   // sample_ids
-  return request.get({url: URL + "/list_samples"})
+  return request.get({url: connection + "/list_samples"})
       .use(request.plugins.parse('json'))
       .then(callback);
 }
