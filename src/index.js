@@ -29,7 +29,7 @@ function sparse_matrix(connection, sample_ids, feature_ids, callback) {
   var payload = {sample_ids: sample_ids, feature_ids: feature_ids};
   // matrix
   return request.post(
-    {url: connection + "/matrix/sparse",json: true, body: payload})
+    {url: connection + "/sparse_matrix",json: true, body: payload})
       .use(request.plugins.parse('json'))
       .then(callback);;
 }
